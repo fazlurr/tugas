@@ -1,4 +1,5 @@
 <?php
+	include 'cek-akses.php';
 	// definisi dari class 
 	require('fpdf/fpdf.php');
 	$start=0;

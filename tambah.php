@@ -1,4 +1,5 @@
 <?php
+	include 'cek-akses.php';
 	if($_POST){		
 		$filename = $_FILES['foto']['tmp_name'];
 		$file_name = $_FILES['foto']['name'];
@@ -93,6 +94,9 @@
 		          <form class="navbar-search pull-left" action="cari.php">
 		            <input type="text" class="search-query span2" name="cari" placeholder="Search">
 		          </form>
+		          <ul class="nav pull-right">
+			          	<li><a href="logout.php">Logout</a></li>
+			      </ul>
 		        </div><!-- /.nav-collapse -->
 	      	</div>
 	    </div><!-- /navbar-inner -->

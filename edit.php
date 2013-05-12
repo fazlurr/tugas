@@ -1,4 +1,5 @@
 <?php
+	include 'cek-akses.php';
 	$id_artis=$_GET['id'];
 
 	$id=mysql_connect("localhost","root","");
@@ -46,6 +47,9 @@
 		          <form class="navbar-search pull-left" action="search.php">
 		            <input type="text" class="search-query span2" name="cari" placeholder="Search">
 		          </form>
+		          <ul class="nav pull-right">
+			          	<li><a href="logout.php">Logout</a></li>
+			          </ul>
 		        </div><!-- /.nav-collapse -->
 	      	</div>
 	    </div><!-- /navbar-inner -->

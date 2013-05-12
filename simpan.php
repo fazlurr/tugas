@@ -1,4 +1,5 @@
 <?php
+	include 'cek-akses.php';
 	$nama = $_POST['nama'];
 	$dob = $_POST['dob'];
 	$tl = $_POST['tl'];

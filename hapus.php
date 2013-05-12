@@ -1,4 +1,5 @@
 <?php
+	include 'cek-akses.php';
 	$id_artis=$_GET['id'];
 	// hapus dari database
 	$id = mysql_connect("localhost","root","");

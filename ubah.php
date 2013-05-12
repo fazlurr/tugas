@@ -1,4 +1,5 @@
 <?php
+	include 'cek-akses.php';
 	if($_FILES['foto']['name']){
 		$filename = $_FILES['foto']['tmp_name'];
 		$file_name = $_FILES['foto']['name'];

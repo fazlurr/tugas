@@ -1,4 +1,5 @@
 <?php
+	include 'cek-akses.php';
 	$q = $_GET['q'];
 	function jk($var){
 		if ($var == "l"){
@@ -49,6 +50,9 @@
 		          <form class="navbar-search pull-left" action="search.php">
 		            <input type="text" class="search-query span2" name="q" placeholder="Search">
 		          </form>
+		          <ul class="nav pull-right">
+			          	<li><a href="logout.php">Logout</a></li>
+			      </ul>
 		        </div><!-- /.nav-collapse -->
 	      	</div>
 	    </div><!-- /navbar-inner -->

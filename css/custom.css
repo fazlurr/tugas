@@ -13,7 +13,65 @@
 19. 3D Button
 20. Image Styling
 21. Link Color
+22. Non Semantic Protector
+23. Login Form
+24. Height 35
+25. Ungu
 */
+
+/*25. Ungu */
+.ungu {
+  background-color: #802c59;
+}
+
+/* 24. Height 35 */
+#height35 {
+  height: 35px;
+}
+
+/* 23. Login Form */
+.login {
+  max-width: 300px;
+  position: relative;
+  margin: 50px auto;
+  padding: 20px 20px 20px;
+  background: white;
+  border-radius: 3px;
+  -webkit-box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 200px rgba(255, 255, 255, 0.5), 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+.login:before {
+  content: '';
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  bottom: -8px;
+  left: -8px;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 4px;
+}
+.login h1 {
+  margin: -20px -20px 21px;
+  line-height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #555;
+  text-align: center;
+  text-shadow: 0 1px white;
+  background: #f3f3f3;
+  border-bottom: 1px solid #cfcfcf;
+  border-radius: 3px 3px 0 0;
+  background-image: -webkit-linear-gradient(top, whiteffd, #eef2f5);
+  background-image: -moz-linear-gradient(top, whiteffd, #eef2f5);
+  background-image: -o-linear-gradient(top, whiteffd, #eef2f5);
+  background-image: linear-gradient(to bottom, whiteffd, #eef2f5);
+  -webkit-box-shadow: 0 1px whiteSmoke;
+  box-shadow: 0 1px whiteSmoke;
+}
+
+/*22. Non Semantic Protector */
+.non-semantic-protector { position: relative; z-index: 1; }
 
 /*21. Link Color */
 a {
@@ -34,7 +92,6 @@ border: solid 1px #CCC;
 
 /*19. 3D Button*/
 .button {
-  padding: 5px 12px;
   font-weight: bold;
   color: #555555;
   text-decoration: none;
@@ -105,20 +162,14 @@ border: solid 1px #CCC;
   border-radius: 2px;
 }
 
-/*11. Edit input box*/
-select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
-  border-radius: 2px;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-}
-
 /*9. Input Box */
 select, textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input {
   color: #777;
   padding-left: 10px;
-  width: 200px;
   border: 1px solid #c7d0d2;
   border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
   -webkit-transition: all .4s ease;
   -moz-transition: all .4s ease;
   transition: all .4s ease;
@@ -763,4 +814,14 @@ input[type=date]:focus {
 	-webkit-linear-gradient(60deg, #99a 25%, transparent 25.5%, transparent 75%, #99a 75%, #99a);
 	background-size:80px 140px;
 	background-position: 0 0, 0 0, 40px 70px, 40px 70px, 0 0, 40px 70px;
+}
+
+.input-block-level {
+  display: block;
+  height: 35px;
+  width: 100%;
+  min-height: 30px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
