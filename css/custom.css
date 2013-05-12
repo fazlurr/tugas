@@ -17,7 +17,13 @@
 23. Login Form
 24. Height 35
 25. Ungu
+26. Alert Info
 */
+
+/* 26. Alert Info */
+.alert-info {
+  text-shadow: 0 1px white;
+}
 
 /*25. Ungu */
 .ungu {

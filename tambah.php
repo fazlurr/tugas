@@ -95,7 +95,7 @@
 		            <input type="text" class="search-query span2" name="cari" placeholder="Search">
 		          </form>
 		          <ul class="nav pull-right">
-			          	<li><a href="logout.php">Logout</a></li>
+			          	<li><a href="logout.php"><i class='icon-white icon-off'></i> Logout</a></li>
 			      </ul>
 		        </div><!-- /.nav-collapse -->
 	      	</div>

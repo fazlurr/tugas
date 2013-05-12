@@ -1,5 +1,8 @@
 <?php
 	include 'cek-akses.php';
+	if(!isset($_GET['id'])){
+		header('Location: index.php');
+	}
 	// definisi dari class 
 	require('fpdf/fpdf.php');
 	$start=0;

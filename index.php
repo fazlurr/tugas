@@ -21,17 +21,27 @@
 		mysql_select_db("artis");
 		$userId = mysql_real_escape_string($_POST['user_id']);
 		$data = mysql_fetch_assoc(mysql_query("SELECT * from user where user_id='".$userId."'"));
-		mysql_close($id1);
 		if($data !== false && $data['password'] == md5($_POST['password'])){
 			//login berhasil
 			$_SESSION['user_id'] = $data['user_id'];
 			$_SESSION['tipe_user'] = $data['type'];
 			$_SESSION['my_user_agent'] = $_SERVER['HTTP_USER_AGENT'];
+
+			$_userid = $_SESSION['user_id'];
+			$_useragent = $_SESSION['my_user_agent'];
+
+			//Log_User
+			$query = "INSERT INTO users_log (`user_id`, `user_agent`) 
+	        VALUES ('$_userid', '$_useragent')";
+	        $hasil = mysql_query($query) or die(mysql_error());
+
+	        //Redirect
 			header('Location: redirect.php');
 		}
 		else {
 			$errors = 1;
 		}
+		mysql_close($id1);
 	}
 ?>
 <!DOCTYPE html>
@@ -55,7 +65,7 @@
 	//Jika belum Login
 	if(!isset($_SESSION['user_id'])){
 	?>
-	<body class="ungu">
+	<body class="ungu" style="background-image: url('img/sunset.jpg');">
 		<div class="container">
 			<div class="login">
 				<form name="login" method="post" action="">
@@ -91,7 +101,7 @@
 			            <input type="text" class="search-query span2" name="q" placeholder="Search">
 			          </form>
 			          <ul class="nav pull-right">
-			          	<li><a href="logout.php">Logout</a></li>
+			          	<li><a href="logout.php"><i class='icon-white icon-off'></i> Logout</a></li>
 			          </ul>
 			        </div><!-- /.nav-collapse -->
 		      	</div>
@@ -116,10 +126,12 @@
 		<br><br>
 		<div class="container">
 			<table class="table table-striped">
-				<tr>
-					<b><td>ID<td>Foto<td>Nama<td>Tanggal Lahir<td>Tempat Kelahiran<td>Jenis Kelamin<td>Tinggi
-					<td colspan=3 align=center>Action</b>
-				</tr>
+				<thead>
+					<tr>
+						<b><td><b>ID<td><b>Foto<td><b>Nama<td><b>Tanggal Lahir<td><b>Tempat Kelahiran<td><b>Jenis Kelamin<td><b>Tinggi
+						<td colspan=3 align=center><b>Action
+					</tr>
+				</thead>
 		<?php
 		while($record=mysql_fetch_array($hasil))
 		{

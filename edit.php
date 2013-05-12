@@ -1,5 +1,8 @@
 <?php
 	include 'cek-akses.php';
+	if(!isset($_GET['id'])){
+		header('Location: index.php');
+	}
 	$id_artis=$_GET['id'];
 
 	$id=mysql_connect("localhost","root","");
@@ -48,7 +51,7 @@
 		            <input type="text" class="search-query span2" name="cari" placeholder="Search">
 		          </form>
 		          <ul class="nav pull-right">
-			          	<li><a href="logout.php">Logout</a></li>
+			          	<li><a href="logout.php"><i class='icon-white icon-off'></i> Logout</a></li>
 			          </ul>
 		        </div><!-- /.nav-collapse -->
 	      	</div>
@@ -84,7 +87,7 @@
 				<tr>
 					<td colspan=2>
 						<input type="hidden" name="id_artis" value="<?php echo $row['id_artis'] ?>">
-						<input class="button" type="submit"></tr>
+						<input class="button btn" type="submit"></tr>
 			</table>
 		</form>
 		<?php

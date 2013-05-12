@@ -1,4 +1,7 @@
 <?php
+	if(!isset($_GET['q'])){
+		header('Location: index.php');
+	}
 	include 'cek-akses.php';
 	$q = $_GET['q'];
 	function jk($var){
@@ -19,7 +22,6 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-	    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	    <meta charset="utf-8">
 	    <title>Data Artis</title>
 	   	<meta name="description" content="Tugas PBW">
@@ -51,7 +53,7 @@
 		            <input type="text" class="search-query span2" name="q" placeholder="Search">
 		          </form>
 		          <ul class="nav pull-right">
-			          	<li><a href="logout.php">Logout</a></li>
+			          	<li><a href="logout.php"><i class='icon-white icon-off'></i> Logout</a></li>
 			      </ul>
 		        </div><!-- /.nav-collapse -->
 	      	</div>
@@ -71,14 +73,17 @@
 			$num_of_page = ceil($total/$num_rec_per_page);
 			$sql = "Select * From biodata where `nama` LIKE '%$q%' limit $mulai,$num_rec_per_page";
 			$hasil = mysql_query($sql, $id);
+			if($total == 0){
+				$kosong = 'yes';
+			}
 			// ambil hasilnya
 			?>
 	<br><br>
 	<div class="container">
 		<table class="table table-striped">
 			<tr>
-				<b><td>ID<td>Foto<td>Nama<td>Tanggal Lahir<td>Tempat Kelahiran<td>Jenis Kelamin<td>Tinggi
-				<td colspan=3 align=center>Action</b>
+				<b><td><b>ID<td><b>Foto<td><b>Nama<td><b>Tanggal Lahir<td><b>Tempat Kelahiran<td><b>Jenis Kelamin<td><b>Tinggi
+				<td colspan=3 align=center><b>Action</b>
 			</tr>
 <?php
 	while($record=mysql_fetch_array($hasil))
@@ -110,6 +115,11 @@
 }
 ?>
 		</table>
+		<?php
+		if(isset($kosong) and $kosong == 'yes'){
+			echo '<div class="alert"><center><img src="img/sorry(iced-gif).gif" class="img-circle"><h1>Maaf<br><h3>Data yang anda cari tidak dapat ditemukan<br>Silahkan coba dengan keyword lain :)<br></div>';
+		}
+		?>
 		<div class="pagination">
 		  <ul>
 		  	<?php
